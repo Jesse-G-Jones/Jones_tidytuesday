@@ -1,2 +1,1 @@
-#Data Source Link
-[Big Tech Stock Prices](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023)]
+# __Data Source__: [Big Tech Stock Prices](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023)
