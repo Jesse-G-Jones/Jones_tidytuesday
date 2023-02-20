@@ -1,6 +1,8 @@
 #TidyTuesday Practice Submission 1
 #Created By: Jesse Jones
 #Date: 2023-02-19
+###Data Source: https://www.kaggle.com/datasets/evangower/big-tech-stock-prices
+###Tidy Tuesday Github Link: https://github.com/rfordatascience/tidytuesday/tree/master/data/2023
 ###Libraries
 library(here)
 library(tidyverse)
