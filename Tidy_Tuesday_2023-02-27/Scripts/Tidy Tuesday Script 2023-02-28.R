@@ -5,8 +5,8 @@
 #Data Sources: 
 #FeederWatch: https://feederwatch.org/explore/raw-dataset-requests/
 #TidyTuesday Data Link: https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-01-10/readme.md
-# __Article Link__: https://www.frontiersin.org/articles/10.3389/fevo.2021.619682/full
-AUTHORS: Bonter David N., Greig Emma I.
+# Article Link: https://www.frontiersin.org/articles/10.3389/fevo.2021.619682/full
+#AUTHORS: Bonter David N., Greig Emma I.
 #Libraries
 library(tidyverse)
 library(here)
