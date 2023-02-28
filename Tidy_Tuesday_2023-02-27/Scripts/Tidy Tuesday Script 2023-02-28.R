@@ -21,10 +21,11 @@ mydata <- feederwatch %>% #creates a function "my data" and loads feederwatch cs
 mydata %>%  #loads mydata data frame
   ggplot(aes(x=snow_dep_atleast, y=Avg_seen, #creates a plot with these assigned aesthetics
              color=effort_hrs_atleast))+
-  geom_point()+ #I want to create a scatterplot
-  labs(title="Average Number of Individuals Seen by Snow Depth and Observation Time", #my labels for title, axes, and caption
+  geom_point(size=4, alpha=.8)+ #I want to create a scatterplot
+  labs(title="Average Number of Individual Birds Seen by Snow Depth and Observation Time", #my labels for title, axes, and caption
        x="Snow Depth (no units provided)",
        y="Average Number of Individuals Seen",
+       color="Hours Spent",
        captions="Effort, but not snow depth, appears to correlate with the number of individuals observed per session.")+
   ggsave(here("Tidy_Tuesday_2023-02-27","Output","Graph.png"),
          width=8, height=8)
