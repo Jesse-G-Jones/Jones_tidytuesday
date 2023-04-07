@@ -37,5 +37,5 @@ labs(title="2018-2020 Monthly Average Player Count of CS:GO, Dota 2, and PUBG", 
      x="Month", #this is the title of my x axis
      y="Average Number of Players", #this is the title of my y axis
      color="Game Title")+ #this is the title of my color legend
-  ggsave(here("Tidy_Tuesday 2023-04-06", "Output", "GamesPlot.png"),
+  ggsave(here("Tidy_Tuesday 2023-04-06", "Output", "GamesPlot.jpg"),
          height=6, width=14)
