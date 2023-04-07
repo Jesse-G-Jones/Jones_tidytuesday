@@ -33,7 +33,7 @@ theme(axis.text.x=element_text(angle=60, hjust=1), #orient my x axis text at 60 
       axis.text=element_text(size="8", face="bold"), #make my axis text size 8 & bold
       plot.title=element_text(hjust=0.48))+ #center my plot title
   
-labs(title="Monthly Average Player Count of CS:GO, Dota 2, and PUBG, by year", #this is the title of my plot
+labs(title="Monthly Average Player Count of CS:GO, Dota 2, and PUBG, by Year", #this is the title of my plot
      x="Month", #this is the title of my x axis
      y="Average Number of Players", #this is the title of my y axis
      color="Game Title")+ #this is the title of my color legend
