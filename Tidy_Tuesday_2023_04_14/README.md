@@ -14,6 +14,6 @@
 
 ### [Official Tidy Tuesday Github Repo](https://github.com/rfordatascience/tidytuesday)
 
-### MLA Format Citation:
+### MLA Format Citation for Article:
 
 -   Mendez, Samara. "US EGG PRODUCTION DATA SET." The Human League, 12 Aug. 2019, <https://thehumaneleague.org/article/E008R01-us-egg-production-data>.
