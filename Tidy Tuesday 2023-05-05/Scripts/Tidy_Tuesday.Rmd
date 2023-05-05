@@ -1,0 +1,58 @@
+---
+title: "Tidy Tuesday Submission #8"
+author: "Jesse Jones"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+## Data Sources & Credits
+### **Data Source**: [The "Neolithic Founder Crops"" in Southwest Asia: Research Compendium](https://github.com/joeroe/SWAsiaNeolithicFounderCrops/)
+### [**Tidy Tuesday Data 2023-04-18**](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-04-18/readme.md)
+### **Article Link**: [Revisiting the concept of the 'Neolithic Founder Crops' in southwest Asia](https://link.springer.com/article/10.1007/s00334-023-00917-1)
+### **Data Dictionary**:(https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-04-18/readme.md#data-dictionary)
+
+## Works Cited
+### Arranz-Otaegui, A., Roe, J. Revisiting the concept of the ‘Neolithic Founder Crops’ in southwest Asia. Veget Hist Archaeobot (2023). https://doi.org/10.1007/s00334-023-00917-1
+### Thomas Mock (2023). Tidy Tuesday: A weekly data project aimed at the R ecosystem. https://github.com/rfordatascience/tidytuesday.
+
+
+```{r}
+#Libraries
+library(here)
+library(tidyverse)
+library(mapdata)
+library(maps)
+library(mapproj)
+library(ggmap)
+#Get the data
+crop_data <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-04-18/founder_crops.csv')
+
+latlong <- data.frame(lon= 38, lat=40) #create an object to specify the lat and long in my ggmap
+
+location <- get_map(latlong, zoom=5) #create an object for plotting my map at my latlong location with zoom set to 5
+
+
+
+crop_tidy <- crop_data %>% #create a new dataframe for data wrangling
+select(genus, source_site_name, site_name, phase, age_end, age_start, family, latitude, longitude) %>% #select these columns
+  distinct() %>% #select unique rows (no repeat data); I don't think I needed this, but I kept it as a precaution
+  mutate(total_time=age_start-age_end) %>% #create a new column for calculating the total number of years this crop was cultivated
+  filter(genus=="Aegilops") #Only look for crops in the genus Aegilops
+
+ggmap(location)+ #plot a map
+  geom_point(data=crop_tidy, aes(x=latitude, y=longitude, color=total_time), #plot points on my graph from the crop_tidy data based on lat & long, with color representing the number of years cultivated
+             size= 2.5, alpha=0.7)+ #modify the size of my points and set the transparency to 0.7
+  scale_color_gradient2(mid="purple", high="darkorange")+ #make my color gradient run from 
+  labs(title="Sites in Southwest Asia Where Neolithic Founder Crops from the Genus 
+       Aegilops Were Found from 14111BCE-1950CE", #this is my lab title
+       color="Total Number of 
+       Years Cultivated", #this is my color legend title
+       x="Latitude", #this is my x axis title
+       y="Longitude")+ #this is my y axis title
+  theme(plot.title=element_text(hjust=0.5)) #try to better center my plot title above the plot
+ggsave(here("Tidy Tuesday 2023-05-05", "Output", "Map.png"), height=6, width=9)
+  
+```
+
